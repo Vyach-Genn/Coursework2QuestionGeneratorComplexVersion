@@ -1,4 +1,4 @@
-package proskycomplexversion.exception;
+package prosky.complexversion.exception;
 
 
 import org.springframework.http.HttpStatus;
@@ -19,4 +19,8 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
     }
 
+    @ExceptionHandler(DivisionByZeroException.class)
+    public ResponseEntity<String> handleDivisionByZeroException(DivisionByZeroException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(ex.getMessage());
+    }
 }

@@ -1,14 +1,13 @@
-package proskycomplexversion.domain;
+package prosky.complexversion.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.Setter;
 
 
 @AllArgsConstructor
 @Getter
-@Setter
 @EqualsAndHashCode
 
 public class Question {
@@ -17,9 +16,9 @@ public class Question {
 
     private String answer;
 
-
+    @JsonIgnore
     public boolean isEmpty() {
-        return false;
+        return question == null || question.trim().isEmpty() || answer == null || answer.trim().isEmpty();
     }
 }
 
